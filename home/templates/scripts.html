@@ -1,0 +1,82 @@
+{% load static %}
+
+<script src="{% static 'js/fontawesome.js' %}"></script>
+
+
+
+<script src="{% static 'js/aos.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/jquery3.6.4.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+<script src="{% static 'js/bootstrap4.min.js' %}"></script>
+<script src="{% static 'js/slim.min.js' %}"></script>
+
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Include Dropzone library from UNPKG -->
+<script>window.CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/';</script>
+
+
+
+<script>
+    AOS.init();
+</script>
+
+
+
+
+
+
+
+<script>
+    function showPreloader() {
+        document.getElementById("preloader").style.display = "block";
+    }
+
+    function hidePreloader() {
+        document.getElementById("preloader").style.display = "none";
+    }
+</script>
+
+
+
+
+<script>
+    const togglePassword = document.querySelector('#togglePassword');
+    const password = document.querySelector('#id_password');
+
+    togglePassword.addEventListener('click', function (e) {
+        // Toggle the type attribute
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+
+        // Toggle the eye icon classes
+        this.classList.toggle('fa-eye');
+        this.classList.toggle('fa-eye-slash');
+    });
+</script>
+
+<script>
+    window.onload = function () {
+        hidePreloader();
+    }
+</script>
+
+<script>
+    // Enable dropdown on hover
+    $(document).ready(function () {
+        $('.dropdown.nav-item').hover(function () {
+            $(this).find('.dropdown-menu-lg-start').stop(true, true).delay(200).fadeIn(300);
+        }, function () {
+            $(this).find('.dropdown-menu-lg-start').stop(true, true).delay(200).fadeOut(300);
+        });
+    });
+</script>
+
+
+<script src="{% static 'js/sweet-alert.js' %}"></script>
+<script src="{% static 'js/toastr.min.js' %}" defer></script>
+<script src="{% static 'js/sweet-alert-ajax.js' %}"></script>

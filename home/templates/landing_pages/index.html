@@ -1,0 +1,219 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    @media (max-width: 576px) {
+        .carousel-item {
+            height: 80vh;
+        }
+    }
+</style>
+<section class="hero-carousel">
+
+
+    <div id="carouselExampleIndicators" class="carousel slide my-carousel" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner" style="margin-top: -100px;">
+            <div class="carousel-item active">
+                <div class="overlay-image img-fluid">
+                    <img src="{% static 'img\piano image.jpg' %}" alt="">
+                </div>
+
+                <div class="carousel-caption d-md-block">
+                    <h3 class="display-3 w100"><span class="w900">Rent</span> Your <span
+                            class="w600 text-secondary">Dream</span>
+                        <span class="w900">Instrument</span>
+                    </h3>
+                    <p>Embrace the Music: Instruments for Every Occasion</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="overlay-image img-fluid">
+                    <img src="{% static 'img\musical instrunment.jpg' %}" alt="">
+                </div>
+                <div class="carousel-caption d-md-block">
+                    <h3 class="display-3 w100"><span class="w900">Events</span><span class="w600 text-secondary">
+                            Unplugged</span>
+                    </h3>
+                    <p>Elevate Your Occasion: Seamless Booking for Memorable Events</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="overlay-image img-fluid">
+                 <img src="{% static 'img/The-Right-Home-Music.jpg' %}" alt="">
+                </div>
+                <div class="carousel-caption d-md-block">
+                    <h3 class="display-3 w100"><span class="w900">Play</span> <span
+                            class="w600 text-secondary">Celebrate</span>Repeat
+                    </h3>
+                    <p>Rent Instruments, Book Events: Your Rhythm, Your Way</p>
+                </div>
+            </div>
+
+
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</section>
+
+<section class=" about-us py-3 py-md-5 py-xl-8" data-aos="">
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-12 col-md-10 col-lg-8 col-xl-7 col-xxl-6">
+                <h2 class="mb-4 display-5 text-center">About Us</h2>
+                <p class="text-secondary mb-5 text-center"> Welcome to Instrument Rental, where passion for music meets the art
+                    of celebration.</p>
+                <hr class="w-50 mx-auto mb-5 mb-xl-9 border-dark-subtle border-2 ">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row gy-3 gy-md-4 gy-lg-0 align-items-lg-center">
+            <div class="col-lg-5 col-sm-6 ">
+
+                <img class="img-fluid hover-image" src="{%static 'img\music-background-instrumento-wallpaper-preview.jpg'%}" alt="" height="500px"
+                    width="auto">
+            </div>
+
+
+
+            <div class="col-lg-6 col-sm-12 col-xl-7">
+                <div class="row justify-content-xl-center">
+
+                    <h2 class="mb-3">Who Are We?</h2>
+                    <p class="lead fs-4 text-secondary mb-3">Welcome to Instrument Rental , your premier destination for
+                        musical instrument rentals and event booking. We are a
+                        passionate team of music enthusiasts dedicated to bringing the joy of music to every
+                        celebration.We help people to Post incredible brands and superior
+                        items to rent. Our perspective is to furnish outstanding captivating rental services.</p>
+                    <p class="mb-5">
+                        Driven by our love for music and the desire to enhance your celebrations, Instrument Rental  is
+                        more than just a
+                        rental service—it's a gateway to a world where melodies and memories intertwine. Join us in
+                        creating soundtracks for
+                        your life's most cherished moments.</p>
+                    
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="mt-3">
+
+    <div id="hot-deal">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="image"
+                        style="background: url('{%static 'img\tumblr_mw26odYf521qjrlalo1_500-101.jpg'%}') center center / cover no-repeat; height: 100%;">
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="hot-deal">
+                        <ul class="hot-deal-countdown">
+                            <li>
+                                <div>
+                                    <h3>02</h3>
+                                    <span>Days</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h3>10</h3>
+                                    <span>Hours</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h3>34</h3>
+                                    <span>Mins</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h3>60</h3>
+                                    <span>Secs</span>
+                                </div>
+                            </li>
+                        </ul>
+                        <h2 class="text-uppercase">Discover Packages</h2>
+                        <p>New Collection Up to 50% OFF</p>
+                        <a class="btn btn-danger" href="#">Rent Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+</section>
+
+
+
+
+
+<section class="bg-light py-5 py-xl-6" data-aos="">
+    <div class="container mb-5 mb-md-6">
+        <div class="row justify-content-md-center">
+            <div class="col-12 col-md-10 col-lg-8 col-xl-7 text-center">
+                <h2 class="mb-4 display-5">Clients</h2>
+                <p class="text-secondary mb-4 mb-md-5">Join the ranks of our satisfied clients who have experienced the
+                    magic of music and celebration with us.Here, we take
+                    pride in building lasting relationships and creating memorable experiences for all our clients.</p>
+                <hr class="w-50 mx-auto mb-0 text-secondary">
+            </div>
+        </div>
+    </div>
+    <div class="container overflow-hidden">
+        <div class="row gy-5 gy-md-6">
+            <div class="col-6 col-sm-3 sm-start-0 align-self-center text-center">
+
+                <img src="{%static 'img/client2.png'%}" alt="" class="img-fluid" width="350" height="155"
+                    viewBox="0 0 125 155" fill="currentColor" class="text-dark">
+            </div>
+            <div class="col-6 col-sm-3 align-self-center text-center">
+                <img src="{%static 'img/client1.png'%}" alt="" class="img-fluid" width="200" height="155"
+                    viewBox="0 0 125 155" fill="currentColor" class="text-dark">
+            </div>
+            <div class="col-6 col-sm-3 align-self-center text-center">
+                <img src="{%static 'img/client3.png'%}" alt="" class="img-fluid" width="200" height="75"
+                    viewBox="0 0 125 155" fill="currentColor" class="text-dark">
+            </div>
+            <div class="col-6 col-sm-3 align-self-center text-center">
+                <img src="{%static 'img/client4.png'%}" alt="" class="img-fluid" width="250" height="155"
+                    viewBox="0 0 155 155" fill="currentColor" class="text-dark">
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+
+
+
+{%endblock%}

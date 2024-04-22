@@ -1,0 +1,16 @@
+Payment Receipt
+
+Dear {{ customer.user.first_name }},
+
+Congratulations! You have successfully rented {{ customer.item.name}}. You will have your
+desired instrument by
+this time on {{ rent_date }}.
+
+Thank you!
+Here are the details:
+
+
+
+{{customer.item.name}}
+{{customer.user.get_full_name}}
+{{customer.Rentitem_Total_amount}}

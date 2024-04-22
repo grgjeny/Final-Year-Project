@@ -1,0 +1,376 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+{% load static %}
+
+<style>
+    .carousel-item {
+        height: 375px;
+    }
+
+    .with-arrow .nav-link {
+        background-color: white;
+        border-radius: 40px;
+        color: #D10024
+    }
+
+    .with-arrow .nav-link:hover {
+        background-color: white;
+        border-radius: 40px;
+        color: black
+    }
+
+    .nav-tabs {
+        border-bottom: 0px;
+    }
+
+    .with-arrow .nav-link.active {
+        color: white;
+        position: relative;
+        background-color: #D10024;
+        border: 13px solid;
+    }
+
+    .with-arrow .nav-link.active::after {
+        content: '';
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-top: 6px solid #D10024;
+        position: absolute;
+        bottom: -6px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: block;
+
+
+    }
+
+    @media (max-width: 576px) {
+        .with-arrow .nav-link.active::after {
+
+            position: none;
+            display: none;
+        }
+
+        .carousel-item {
+            height: 250px;
+        }
+
+    }
+
+
+    .product-details .product-name {
+        text-transform: uppercase;
+        font-size: 22px;
+    }
+
+    .product-details .product-rating {
+        display: inline-block;
+        margin-right: 15px;
+    }
+
+    .product-details .product-rating>i {
+        color: #E4E7ED;
+    }
+
+    .product-details .product-rating>i.fa-star {
+        color: #D10024;
+    }
+
+
+
+    .product-details .product-price {
+        display: inline-block;
+        font-size: 24px;
+        margin-top: 10px;
+        margin-bottom: 15px;
+        color: #D10024;
+    }
+
+    .product-details .product-price .product-old-price {
+        font-size: 70%;
+        font-weight: 400;
+        color: #8D99AE;
+    }
+
+    .product-details .product-available {
+        font-size: 12px;
+        text-transform: uppercase;
+        font-weight: 700;
+        margin-left: 30px;
+        color: #D10024;
+    }
+
+    .product-details {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+
+
+
+    .product-details .save {
+        margin-bottom: 30px;
+    }
+
+
+    .save-btn {
+        position: relative;
+        border: 2px solid transparent;
+        height: 40px;
+        padding: 0 30px;
+        margin-right: 15px;
+        background-color: #ef233c;
+        color: #FFF;
+        text-transform: uppercase;
+        font-weight: 700;
+        border-radius: 40px;
+        -webkit-transition: 0.2s all;
+        transition: 0.2s all;
+    }
+
+    .book-now {
+
+        border: 2px solid black;
+        height: 40px;
+        padding: 0 30px;
+        text-transform: uppercase;
+        font-weight: 700;
+        border-radius: 40px;
+
+    }
+
+    .booked {
+        border: 2px solid black;
+        height: 40px;
+        padding: 0 30px;
+        text-transform: uppercase;
+        font-weight: 700;
+        border-radius: 40px;
+    }
+
+    .save-btn>i {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 40px;
+        height: 40px;
+        line-height: 38px;
+        color: #D10024;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .save-btn:hover {
+        background-color: #FFF;
+        color: #D10024;
+        border-color: #D10024;
+        padding: 0px 30px 0px 50px;
+    }
+
+    .save-btn:hover>i {
+        opacity: 1;
+        visibility: visible;
+    }
+
+
+
+    .product-links {
+        margin-top: 15px;
+        padding-left: 0;
+    }
+
+    .product-details .product-links li {
+        display: inline-block;
+        text-transform: uppercase;
+        font-size: 13px;
+    }
+
+
+    .review {
+        color: #D10024;
+    }
+
+    .checked {
+        color: #D10024;
+    }
+
+    .my-btn {
+        background-color: inherit !important;
+        border: 0 !important;
+    }
+
+    .reviews li {
+        position: relative;
+        padding-left: 145px;
+        margin-bottom: 10px;
+
+    }
+
+    .reviews .review-heading {
+        position: absolute;
+        width: 130px;
+        left: 0;
+        top: 0;
+        height: 70px;
+    }
+
+    .reviews {
+        min-height: 75px;
+    }
+
+    .reviews .review-heading .name {
+        margin-bottom: 5px;
+        margin-top: 0px;
+    }
+
+    .reviews .review-heading .date {
+        color: #8D99AE;
+        font-size: 10px;
+        margin: 0;
+    }
+
+    .reviews .review-heading .review-rating {
+        margin-top: 5px;
+    }
+
+    .user-image {
+        margin-left: 19%;
+    }
+
+
+    .avg_star {
+        margin-left: 42%;
+    }
+
+    .comments {
+        height: 100px;
+        width: 55%;
+        margin-top: 30px;
+        margin-left: 24%;
+    }
+
+    @media (max-width: 546px) {
+        .user-image {
+            margin-left: 18%;
+        }
+
+        .avg_star {
+            margin-left: 0;
+
+        }
+
+        .review-section {
+            margin-left: 25%;
+        }
+
+        .comments {
+            margin-left: 0;
+            width: 100%;
+
+        }
+    }
+</style>
+
+
+
+<div class="text-center bg-image" data-aos="zoom-in-up"
+    style="
+      background-image: url('{% static 'img/about/aboutus2.jpg' %}'); height: 600px; background-repeat: no-repeat; background-size:cover; margin-top:-100px; opacity:96% ;">
+
+    <div class="d-flex justify-content-center align-items-center h-100">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+
+                <div class="col-md-12">
+                    <h1 class="text-white font-weight-bold">Explore</h1>
+                    <div class="custom-breadcrumbs">
+                        <a href="{% url 'explore' %}"
+                            style="color: white; text-decoration: none;"><strong>Explore</strong></a>
+                        <span class="mx-2 slash text-light">/</span>
+                        <span class="text-white">Details</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<div class="container my-5 py-2 ">
+    {% include 'messages.html' %}
+
+
+    <div class="row" height="100vh">
+        <!-- carousel Image -->
+        <div class="col-md-6 col-md-push-2">
+
+            <div id="instrument_{{item.name}}" class="carousel slide bg-light" data-interval="false">
+                
+                <div class="carousel-inner">
+                    <div class="carousel-item active" style="background-color: #FFF;">
+                        <img class="card-img-top img-fluid" src="{{ item.image.url }}"
+                            alt="Slide" style="max-height: 100%; max-width: 100%;">
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <!-- Item Information -->
+
+        <div class="col-md-6 ps-3 ">
+
+            <div class="product-details ">
+                <h1 class="product-name">{{item.Name}}</h1>
+                <div>
+                    <h3 class="product-price">रु {{ item.Price }} </h3>
+
+                </div>
+                <ul class="product-links">
+                    <li>Category:</li>
+                    <li class="px-2"><a href="#"
+                            style="text-decoration: none; color:#D10024;">{{item.ProductsType}}</a></li>
+                </ul>
+                <p>{{ item.description | safe | truncatechars:200 }}
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#descriptionModal">Read more</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+    
+<div class="modal fade" id="descriptionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center bg-dark">
+                <h2 class="modal-title text-light text-center" id="exampleModalLongTitle" style="padding-left: 30%;">
+                    Description</h2>
+                <button type="button" class="close btn btn-outline-light" data-bs-dismiss="modal" aria-label="Close">
+                    <!-- Ensure this button has the data-dismiss attribute to close the modal -->
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {{item.description | safe}}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- Modal -->
+
+
+
+{% endblock %}

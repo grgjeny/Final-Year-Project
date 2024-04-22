@@ -1,0 +1,322 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .with-arrow .nav-link {
+        background-color: white;
+        border: 3px solid #D10024;
+        border-radius: 40px;
+        color: #D10024;
+    }
+
+    .with-arrow .nav-link:hover {
+        background-color: white;
+        border: 3px solid black;
+        border-radius: 40px;
+        color: black
+    }
+
+    .nav-tabs {
+        border-bottom: 0px;
+    }
+
+    .with-arrow .nav-link.active {
+        color: white;
+        position: relative;
+        background-color: #D10024;
+        border: 13px solid;
+    }
+
+    .with-arrow .nav-link.active::after {
+        content: '';
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-top: 6px solid #D10024;
+        position: absolute;
+        bottom: -6px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: block;
+
+
+    }
+
+    .save-btn {
+        position: relative;
+        border: 2px solid transparent;
+        height: 40px;
+        padding: 0 30px;
+        background-color: #ef233c;
+        color: #FFF;
+        text-transform: uppercase;
+        font-weight: 700;
+        border-radius: 40px;
+        -webkit-transition: 0.2s all;
+        transition: 0.2s all;
+    }
+
+
+    .book-now {
+
+
+        height: 40px;
+        padding: 0 30px;
+        text-transform: uppercase;
+        font-weight: 700;
+        border-radius: 40px;
+
+    }
+
+    .booked {
+        border: 2px solid transparent;
+        height: 40px;
+        padding: 0 30px;
+        text-transform: uppercase;
+        font-weight: 700;
+        border-radius: 40px;
+    }
+
+    .save-btn>i {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 40px;
+        height: 40px;
+        line-height: 38px;
+        color: #D10024;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .save-btn:hover {
+        background-color: #FFF;
+        color: #D10024;
+        border-color: #D10024;
+        padding: 0px 30px 0px 50px;
+    }
+
+    .save-btn:hover>i {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .second-image {
+        transition: transform 0.3s ease-in-out;
+        /* Adjust the duration and easing function as needed */
+    }
+
+    .second-image:hover {
+        transform: scale(1.1);
+        /* Adjust the scale factor as needed */
+    }
+
+    .event-card {
+        transition: transform 0.3s ease-in-out;
+        /* Adjust the duration and easing function as needed */
+    }
+
+    .event-card:hover {
+        transform: scale(1.1);
+        box-shadow: 3px 2px rgb(180, 178, 178);
+        /* Adjust the scale factor as needed */
+
+    }
+
+
+    @media (max-width: 576px) {
+        .event-hero {
+            object-fit: cover;
+            object-position: center;
+            display: none;
+        }
+
+        .with-arrow .nav-link.active::after {
+
+            position: none;
+            display: none;
+
+
+        }
+
+        .second-image {
+
+            margin-top: 40px;
+            height: 50%;
+            width: 94vw;
+            margin-bottom: 25px;
+
+            /* Adjust the duration and easing function as needed */
+        }
+
+        .second-image:hover {
+            transform: none;
+            /* Adjust the scale factor as needed */
+        }
+
+        .event-card {
+            transition: none;
+            /* Adjust the duration and easing function as needed */
+        }
+
+        .event-card:hover {
+            transform: none;
+            /* Adjust the scale factor as needed */
+
+        }
+
+        .shareblock {
+            display: none;
+        }
+
+
+    }
+</style>
+<div class="text-center event-hero" data-aos="zoom-in-up"
+    style="
+      background-image: url('{{ event.image.url }}'); height: 600px; background-repeat: no-repeat; background-size:cover; margin-top:-100px; opacity:0.895; object-fit: cover; ">
+
+
+</div>
+
+<section class="site-section">
+    <div class="container">
+
+        <div class="row mb-5">
+            <div class="col-lg-8 mb-2 mb-lg-0">
+                <div class="d-lg-flex align-items-center">
+                    <div class="d-inline-block start-0 rounded position-relative"
+                        style="margin-top: -150px; margin-right: 15px;">
+                        <img class="second-image" src="{{ event.image.url }}" alt="Image" height="290px" width="290px"
+                            style="object-fit: cover; object-position: center; position: relative; z-index: 1;">
+
+                    </div>
+                    <div>
+                        <h2 class="">{{ event.name }}</h2>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="row mt-lg-5 mt-sm-0">
+                    
+                       
+
+
+
+                    
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {% include 'messages.html' %}
+
+            <div class="col-lg-8">
+                <div class="mb-5">
+
+
+                    <!-- Bordered tabs-->
+                    <ul id="myTab1" role="tablist"
+                        class="nav nav-tabs nav-pills with-arrow flex-column flex-sm-row text-center ">
+                        <li class="nav-item flex-sm-fill mx-2">
+                            <a id="home1-tab" data-toggle="tab" href="#home1" role="tab" aria-controls="home1"
+                                aria-selected="true"
+                                class="nav-link text-uppercase font-weight-bold mr-sm-3 rounded-5 border-2 active">Description</a>
+                        </li>
+                        {% comment %} <li class="nav-item flex-sm-fill mx-2">
+                            <a id="profile1-tab" data-toggle="tab" href="#profile1" role="tab" aria-controls="profile1"
+                                aria-selected="false"
+                                class="nav-link text-uppercase font-weight-bold mr-sm-3 rounded-5 border-2">Location</a>
+                        </li> {% endcomment %}
+
+                    </ul>
+                    <div id="myTab1Content" class="tab-content">
+                        <div id="home1" role="tabpanel" aria-labelledby="home-tab"
+                            class="tab-pane fade px-4 py-5 show active">
+                            <p align="justify">{{ event.Description | safe }}</p>
+                        </div>
+                        <div id="profile1" role="tabpanel" aria-labelledby="profile-tab"
+                            class="tab-pane fade px-4 py-5">
+                            <div id="map" style="height: 500px;"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <div class="col-lg-4 mt-2">
+                <div class="p-3 border rounded mb-4 mt-3 event-card ">
+                    <h3 class="text-danger  mt-3 h5 pl-3 mb-3 ">Event</h3>
+                    <ul class="list-unstyled pl-3 mb-0">
+                        <li class="mb-2"><strong class="text-black">Event on:</strong> {{ event.Event_Start_Date|date:"d M Y"}} - {{ event.Event_End_Date|date:"d M Y"}}</li>
+                        <li class="mb-2"><strong class="text-black">Location:</strong> {{ event.location }}</li>
+                      
+
+                        
+                    </ul>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+            return new bootstrap.Popover(popoverTriggerEl)
+        });
+    });
+</script>
+
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<!-- Link to Leaflet JavaScript -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+<!-- Script to initialize Leaflet map -->
+<script>
+    // Function to initialize Leaflet map
+    function initMap(latitude, longitude) {
+        // Initialize map
+        var map = L.map('map').setView([latitude, longitude], 18);
+
+        // Add OpenStreetMap tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        var redIcon = L.icon({
+            iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            tooltipAnchor: [16, -28],
+            shadowSize: [41, 41]
+        });
+
+        // Add a marker with the custom red icon for the location
+        L.marker([parseFloat(latitude), parseFloat(longitude)], { icon: redIcon }).addTo(map)
+            .bindPopup(`{{event.name}}'s Location`)
+            .openPopup();
+
+
+    }
+
+    // Set latitude and longitude for testing
+    var latitude = {{ event.latitude }}; // Example latitude
+    var longitude = {{ event.longitude }}; // Example longitude
+
+    setTimeout(function () {
+        initMap(latitude, longitude);
+    }, 3500); 
+</script>
+{% endblock %}

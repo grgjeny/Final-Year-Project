@@ -1,0 +1,164 @@
+{% extends 'base.html' %}
+{% include 'paginator.html' %}
+
+{% block title %}Items{% endblock %}
+
+{% block content %}
+
+
+
+
+<!-- explore page -->
+{% load static %}
+<style>
+    .category {
+        margin-left: 40px;
+    }
+
+
+    .explore-card {
+        transition: transform 0.2s ease-in-out;
+
+    }
+
+    .explore-card:hover {
+        transform: scale(101.9%);
+        /* Adjust the scale factor as needed */
+
+    }
+
+
+    @media (max-width: 576px) {
+        .category {
+            margin-left: 0px;
+        }
+
+        .explore-card {
+            transform: none;
+        }
+
+    }
+</style>
+
+<div class="text-center bg-image" data-aos="zoom-in-up"
+    style="
+      background-image: url('{% static 'img\The-Right-Home-Music.jpg' %}'); height: 400px; background-repeat: no-repeat; background-size:cover; margin-top:-100px; opacity:96% ;">
+
+    <div class="d-flex justify-content-center align-items-center h-100">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+
+                <div class="col-md-12">
+                    <h1 class="text-white font-weight-bold">Explore</h1>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<div class="container">
+    <div class="row justify-content-between">
+        <div class="col-lg-3 col-sm-12">
+            {% comment %} <form method="get" action="{% url 'explore:items' %}">
+                <label class="sr-only" for="searchInput">Search</label>
+                <div class="input-group mb-2">
+                    <input type="search" class="form-control" id="searchInput" name="query" placeholder="Search"
+                        value="{{ query }}">
+                    <div class="input-group-append">
+                        <button class="btn btn-dark" type="submit"><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+            </form> {% endcomment %}
+        </div>
+        <div class="col-lg-2 col-sm-12">
+            <div class="dropdown category">
+                
+                {% comment %} <div class="dropdown-menu" aria-labelledby="categoryDropdown">
+                    <a class="dropdown-item" href="{% url 'explore:items' %}">All</a>
+                    {% for category in categories %}
+                    <a class="dropdown-item"
+                        href="{% url 'explore:items' %}?query={{ query }}&category={{ category.id }}">
+                        {{ category.name }}
+                    </a>
+                    {% endfor %}
+                </div> {% endcomment %}
+            </div>
+        </div>
+
+
+
+    </div>
+    {% include 'messages.html' %}
+
+    <div class="row">
+
+
+
+
+        {% for item in Products_List %}
+
+        <div class="col-lg-4 col-md-4 col-sm-6 my-3  " data-aos="zoom-in-up">
+            <a href="{% url 'items' item.pk %}" class="card-link" style="text-decoration:none;">
+
+
+
+                <div class="card shadow mb-5 h-80 explore-card" style="width: Auto">
+                    <div id="instrument_{{item.id}}" class="carousel slide" data-bs-interval="false">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" style="height: 200px;">
+                                <img class="card-img-top img-fluid carousel-image" src="{{ item.image.url }}"
+                                    alt="Slide {{ forloop.counter }}" style="max-height: 100%; max-width: 100%;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+
+
+                        <div class="product-body justify-content-center">
+                            <span
+                                class="badge badge-lg rounded-pill bg-danger text-white mb-2">{{item.ProductsType}}</span>
+                            <p class="product-category">{{item.category}}</p>
+                            <h3 class="product-name"><a href="#">
+                                    {{ item.Name}}</a></h3>
+                            <h4 class="product-price">रु {{ item.Price }} </h4>
+
+
+
+
+
+
+                            <div class="product-btns justify-content-center"
+                                style="background-color: rgba(0, 0, 0, 0);  ">
+
+
+
+                                <a href="{% url 'items' item.pk %}" class="quick-view"><i
+                                        class="fa fa-eye fa-lg"></i><span class="tooltipp">
+                                        view details</span></a>
+                            </div>
+
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% include 'paginator.html' %}
+
+
+
+
+
+{% endblock %}

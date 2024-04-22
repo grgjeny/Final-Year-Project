@@ -1,0 +1,134 @@
+<style>
+    @media (max-width: 576px) {
+        .mb-2 .link-follow {
+             
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+        
+    }
+</style>
+<footer class="text-center text-lg-start bg-light text-muted mt-4 ">
+    <!-- Section: Social media -->
+    <section class="d-lg-flex justify-content-center justify-content-between p-4 border-bottom">
+        <!-- Left -->
+        <div class="me-5 d-none d-lg-block">
+            <span>Get connected with us on social networks:</span>
+        </div>
+
+        <div>
+            <a href="" class="me-4 text-reset">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="" class="me-4 text-reset">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="" class="me-4 text-reset">
+                <i class="fab fa-google"></i>
+            </a>
+            <a href="https://www.instagram.com/grgjenn/"  target="_blank" class="me-4 text-reset">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="" class="me-4 text-reset">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="" class="me-4 text-reset">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+
+    </section>
+
+
+    <!-- Section: Links  -->
+    <section class="justify-content-center">
+        <div class="container text-center text-md-start mt-3"
+           >
+            <!-- Grid row -->
+            <div class="row mt-2">
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-4 col-sm-3 mx-auto mb-2 ">
+                    <!-- Content -->
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        <i class="fas fa-gem me-3 me-sm-2"></i>Musical instrument
+                    </h6>
+                    <p>
+                        Make sure you have a good mix of items and keep them in good condition. Build a website that's easy for people to use and make sure it's safe to pay online. Add a way for customers to book items, think about how you'll deliver them, and offer insurance in case something goes wrong with the rented items.
+                    </p>
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-2 col-sm-3 mb-2">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        Products
+                    </h6>
+                    <ul class="link-follow">
+                        <li class="li"><a class="single-link" href="{% url 'index' %}">Home</a></li>
+                        <li class="li"><a class="single-link" href="{% url 'explore' %}">Explore</a></li>
+                        {% comment %} <li class="li"><a class="single-link" href="{% url 'event:e' %}">Events</a></li> {% endcomment %}
+                        <li class="li"><a class="single-link" href="{% url 'blog' %}">Blogs</a>
+                        </li>
+                        {% comment %} <li class="li"><a class="single-link" href="{% url 'accounts:login' %}">Account</a></li>  {% endcomment %}
+                    </ul>
+                </div>
+
+
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-2 col-xl-2 col-sm-3 mx-auto mb-2">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        Useful links
+                    </h6>
+                    {% comment %} <ul class="link-follow">
+                        <li class="li"><a class="single-link" href="{% url 'main:about' %}">About Us</a></li>
+                        <li class="li"><a class="single-link" href="{% url 'main:contact' %}">Contact</a></li>
+                        <li class="li"><a class="single-link" href="{% url 'main:dispute'%}">Dispute</a></li>
+                        <li class="li"><a class="single-link" href="{% url 'main:term'%}">Terms and Conditions</a>
+                        </li>
+                        <li class="li"><a class="single-link" href="{% url 'accounts:login' %}">Account</a></li>
+                    </ul> {% endcomment %}
+                </div>
+
+
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-3 col-xl-3 col-sm-3 mx-auto mb-2">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        Contact Info
+                    </h6>
+                    <div class="contact">
+                        <!-- News letter area -->
+                        <p class="address">Address: Boudha,Kathmandu</p>
+                        <p class="phone">Phone/Fax: 9803510597</p>
+                        <p class="mail">Email:<a href="#"> instrumentrental@gmail.com</a></p>
+                        <!-- News letter area  End -->
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+            </div>
+            <div class="row">
+
+                <div class="">
+                    <p class="copy-text text-center"> ©
+                        <script type="text/JavaScript">
+                            document.write(new Date().getFullYear());</script>
+                        <strong>Instrument Rental System</strong> Made By <a href=""
+                            style="text-decoration: none; color:#D10024 ;">
+                            <strong>Jeny Gurung</strong></a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+
+
+</footer>
